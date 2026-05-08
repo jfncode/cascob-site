@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /obrigado
+Disallow: /obrigado.html
+
+Sitemap: https://DOMINIO_PLACEHOLDER/sitemap.xml
