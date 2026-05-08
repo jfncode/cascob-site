@@ -1,0 +1,7 @@
+# URLs limpas para páginas SEO
+/servicos/dividas-prescritas    /servicos/dividas-prescritas.html    200
+/servicos/fraude-consignado     /servicos/fraude-consignado.html     200
+/obrigado                       /obrigado.html                        200
+
+# Fallback 404
+/*    /404.html    404
