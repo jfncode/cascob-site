@@ -503,6 +503,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 :root[data-mode="escuro"] .serv-card__num { color: var(--gold-light); }
 .serv-card__t {
+  display: block;
   font-family: var(--serif);
   font-weight: 500;
   font-size: 22px;
@@ -511,6 +512,7 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--fg);
 }
 .serv-card__d {
+  display: block;
   font-size: 13.5px; line-height: 1.5;
   color: var(--fg-soft);
   margin: 0;
