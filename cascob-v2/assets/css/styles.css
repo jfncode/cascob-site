@@ -152,21 +152,11 @@ button { font-family: inherit; cursor: pointer; }
     drop-shadow(2px 4px 0 rgba(0,0,0,0.35))
     drop-shadow(0 18px 24px rgba(0,0,0,0.55))
     drop-shadow(0 30px 60px rgba(200,155,60,0.25));
-  animation: heroLogoSpin3D 8s ease-in-out infinite;
-  transform-style: preserve-3d;
-  will-change: transform;
-  backface-visibility: hidden;
-}
-@keyframes heroLogoSpin3D {
-  0%   { transform: rotateY(-30deg) rotateX(10deg) translateY(0); }
-  25%  { transform: rotateY(0deg)   rotateX(4deg)  translateY(-10px); }
-  50%  { transform: rotateY(30deg)  rotateX(10deg) translateY(0); }
-  75%  { transform: rotateY(0deg)   rotateX(4deg)  translateY(-10px); }
-  100% { transform: rotateY(-30deg) rotateX(10deg) translateY(0); }
+  animation: heroLogoFloat 6s ease-in-out infinite;
 }
 @keyframes heroLogoFloat {
-  0%, 100% { transform: rotateX(8deg) rotateY(-6deg) translateY(0); }
-  50% { transform: rotateX(6deg) rotateY(-4deg) translateY(-8px); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 .hero__tag {
   font-family: var(--serif);
