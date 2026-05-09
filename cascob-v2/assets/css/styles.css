@@ -36,8 +36,6 @@
   --fg: #f3ecdb;
   --fg-soft: #b8ad95;
   --line: rgba(200, 155, 60, 0.20);
-  --cream: #0c0c0c;
-  --cream-deep: #161616;
   --gold-readable: var(--gold-light);
   --focus-ring: 2px solid var(--gold-light);
 }
