@@ -162,11 +162,37 @@
     }
   }
 
+  // ── EMBED LOADER (centralizado) ──────────────────────────────────────
+  // Carrega o embed.js do Instagram quando QUALQUER blockquote .instagram-media
+  // entra na viewport — cobre seção destaques (hardcoded) + seção mídia (gerados via JS).
+  function initEmbedLoader() {
+    const candidates = document.querySelectorAll('.instagram-media');
+    if (!candidates.length) return;
+    if ('IntersectionObserver' in window) {
+      const loader = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            loadInstagramScript();
+            loader.disconnect();
+            return;
+          }
+        }
+      }, { rootMargin: '200px' });
+      candidates.forEach(c => loader.observe(c));
+    } else {
+      loadInstagramScript();
+    }
+  }
+
   // ── INIT ──────────────────────────────────────────────────────────────
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => { renderReels(); renderSlides(); });
-  } else {
+  function init() {
     renderReels();
     renderSlides();
+    initEmbedLoader();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
 })();
