@@ -22,25 +22,6 @@
     onScroll();
   }
 
-  // Theme toggle (claro/escuro), persistido em localStorage
-  const themeKey = 'cascob:theme';
-  const html = document.documentElement;
-  const savedTheme = (function() {
-    try { return localStorage.getItem(themeKey); } catch (e) { return null; }
-  })();
-  if (savedTheme === 'claro' || savedTheme === 'escuro') {
-    html.dataset.mode = savedTheme;
-  }
-  const themeBtn = document.getElementById('theme-toggle');
-  if (themeBtn) {
-    themeBtn.addEventListener('click', () => {
-      const next = html.dataset.mode === 'escuro' ? 'claro' : 'escuro';
-      html.dataset.mode = next;
-      try { localStorage.setItem(themeKey, next); } catch (e) {}
-      track('theme_toggle', { tema: next });
-    });
-  }
-
   // Serviços accordion (cards 1–6)
   document.querySelectorAll('.serv-card[aria-expanded]').forEach(card => {
     card.addEventListener('click', () => {
