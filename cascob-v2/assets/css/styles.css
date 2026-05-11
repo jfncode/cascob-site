@@ -909,4 +909,22 @@ button { font-family: inherit; cursor: pointer; }
 .breadcrumb a{color:inherit;text-decoration:underline;text-decoration-color:transparent;transition:text-decoration-color var(--transition-base);}
 .breadcrumb a:hover{text-decoration-color:var(--gold-readable);}
 .breadcrumb__sep{color:var(--gold-readable);}
+
+/* ───────── BA SECTION (defesa busca e apreensão completa) ───────── */
+.ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;}
+@media (max-width:880px){.ba-grid{grid-template-columns:1fr;gap:18px;}}
+.ba-card{background:var(--bg);border:1px solid var(--line);padding:32px 28px;display:flex;flex-direction:column;gap:16px;transition:transform .25s,border-color .25s;}
+:root[data-mode="escuro"] .ba-card{background:var(--bg-alt);}
+.ba-card:hover{transform:translateY(-3px);border-color:var(--gold);}
+.ba-card__icon{width:56px;height:56px;display:flex;align-items:center;justify-content:center;background:color-mix(in oklab,var(--gold) 14%,transparent);border-radius:50%;color:var(--gold-deep);}
+:root[data-mode="escuro"] .ba-card__icon{color:var(--gold-light);background:color-mix(in oklab,var(--gold) 18%,transparent);}
+.ba-card__title{font-family:var(--serif);font-style:italic;font-size:24px;font-weight:500;margin:0;color:var(--fg);letter-spacing:-0.01em;}
+.ba-card__list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;}
+.ba-card__list li{position:relative;padding-left:22px;color:var(--fg-soft);font-size:15px;line-height:1.55;}
+.ba-card__list li::before{content:"";position:absolute;left:2px;top:9px;width:8px;height:8px;background:var(--gold);border-radius:50%;}
+.ba-banner{background:var(--black);color:var(--cream);padding:32px 40px;margin-top:48px;display:flex;align-items:center;gap:24px;border-left:4px solid var(--gold);}
+.ba-banner__icon{flex-shrink:0;color:var(--gold);width:48px;height:48px;display:flex;align-items:center;justify-content:center;}
+.ba-banner__text{font-size:17px;line-height:1.55;color:var(--cream);}
+.ba-banner__text strong{color:var(--gold-light);font-weight:600;}
+@media (max-width:640px){.ba-banner{flex-direction:column;text-align:center;padding:24px;gap:14px;}.ba-banner__text{font-size:15.5px;}}
 .breadcrumb [aria-current="page"]{color:var(--fg);font-weight:500;}
