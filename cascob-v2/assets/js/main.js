@@ -157,7 +157,7 @@
       track('whatsapp_click', { local: 'form' });
 
       window.open(url, '_blank', 'noopener');
-      window.location.href = '/obrigado.html';
+      window.location.href = '/obrigado/';
     });
   }
 })();
