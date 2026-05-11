@@ -3,4 +3,4 @@ Allow: /
 Disallow: /obrigado
 Disallow: /obrigado.html
 
-Sitemap: https://DOMINIO_PLACEHOLDER/sitemap.xml
+Sitemap: https://cascob.com.br/sitemap.xml
