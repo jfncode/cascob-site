@@ -2,7 +2,7 @@
   'use strict';
 
   // PLACEHOLDERS — Jefferson substitui antes do deploy
-  const GA4_ID = 'G-XXXXXXXXXX';
+  const GA4_ID = 'G-6MLY881RCB';
   const PIXEL_ID = '000000000000000';
 
   const hasGA = GA4_ID && GA4_ID !== 'G-XXXXXXXXXX';
