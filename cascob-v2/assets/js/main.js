@@ -150,7 +150,7 @@
         'nao-sei': 'ainda não sei o valor exato'
       }[faixa] || faixa;
 
-      const msg = `Oi, sou ${nome}. Tenho dívida ${faixaLegivel} e quero a análise sob consulta do meu CPF. Telefone: ${telefone}.`;
+      const msg = `Oi, sou ${nome}. Tenho dívida ${faixaLegivel} e quero a análise sob consulta do meu caso. Telefone: ${telefone}.`;
       const url = `https://wa.me/5517991999006?text=${encodeURIComponent(msg)}`;
 
       track('formulario_enviado', { faixa });
