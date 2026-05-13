@@ -414,12 +414,15 @@ button { font-family: inherit; cursor: pointer; }
 @media (max-width: 880px) {
   .hero__grid { grid-template-columns: 1fr; gap: 0; }
   .hero__left { padding-bottom: 32px; }
-  .hero__right { padding-bottom: 56px; }
+  .hero__right { padding-bottom: 56px; display: flex; justify-content: center; }
+  .hero-logo { width: 100%; max-width: 320px; padding: 20px; }
 }
 @media (max-width: 480px) {
   .hero__trust { gap: 16px; margin-top: 40px; padding-top: 20px; }
   .hero__trust strong { font-size: 26px; }
   .hero__trust span { font-size: 11.5px; }
+  .hero-logo { max-width: 220px; padding: 12px; }
+  .hero-logo img { max-width: 100%; }
 }
 
 /* ───────── headline strip ───────── */
