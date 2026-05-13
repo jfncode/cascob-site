@@ -96,7 +96,7 @@ button { font-family: inherit; cursor: pointer; }
   color: inherit;
 }
 .logo__img {
-  height: 44px; width: auto;
+  height: 48px; width: auto;
   filter: drop-shadow(0 2px 0 rgba(0,0,0,0.18)) drop-shadow(0 6px 14px rgba(160,125,40,0.35));
   transform: translateZ(0);
   transition: transform .25s ease;
