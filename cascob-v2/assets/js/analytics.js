@@ -3,27 +3,42 @@
 
   // PLACEHOLDERS — Jefferson substitui antes do deploy
   const GA4_ID = 'G-6MLY881RCB';
+  const ADS_ID = 'AW-984072087';
   const PIXEL_ID = '000000000000000';
 
   const hasGA = GA4_ID && GA4_ID !== 'G-XXXXXXXXXX';
+  const hasAds = ADS_ID && ADS_ID !== 'AW-XXXXXXXXX';
   const hasPixel = PIXEL_ID && PIXEL_ID !== '000000000000000';
 
-  // ── Google Analytics 4 ───────────────────────────────────────────────
-  if (hasGA) {
+  // ── Google gtag.js (GA4 + Google Ads) ────────────────────────────────
+  if (hasGA || hasAds) {
+    // Um único gtag.js serve os dois produtos; carrega usando o 1º ID ativo.
+    const loaderId = hasGA ? GA4_ID : ADS_ID;
     const s = document.createElement('script');
     s.async = true;
-    s.src = `https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`;
+    s.src = `https://www.googletagmanager.com/gtag/js?id=${loaderId}`;
     document.head.appendChild(s);
 
     window.dataLayer = window.dataLayer || [];
     window.gtag = function() { dataLayer.push(arguments); };
     gtag('js', new Date());
-    gtag('config', GA4_ID, {
-      anonymize_ip: true,
-      send_page_view: true
-    });
-  } else {
+
+    if (hasGA) {
+      gtag('config', GA4_ID, {
+        anonymize_ip: true,
+        send_page_view: true
+      });
+    }
+    if (hasAds) {
+      gtag('config', ADS_ID);
+    }
+  }
+
+  if (!hasGA) {
     console.info('[Cascob] GA4 desativado (substitua GA4_ID em analytics.js).');
+  }
+  if (!hasAds) {
+    console.info('[Cascob] Google Ads desativado (substitua ADS_ID em analytics.js).');
   }
 
   // ── Meta Pixel ───────────────────────────────────────────────────────
