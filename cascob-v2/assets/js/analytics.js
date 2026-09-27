@@ -4,6 +4,7 @@
   // PLACEHOLDERS — Jefferson substitui antes do deploy
   const GA4_ID = 'G-6MLY881RCB';
   const ADS_ID = 'AW-984072087';
+  const ADS_CONVERSION_LABEL = 'P4cDCJ_eg4QdEJf_ntUD'; // Conversão "Contato" (Google Ads)
   const PIXEL_ID = '000000000000000';
 
   const hasGA = GA4_ID && GA4_ID !== 'G-XXXXXXXXXX';
@@ -90,8 +91,14 @@
     return map[event] || null;
   }
 
-  // Página /obrigado dispara conversion
-  if (window.location.pathname.endsWith('/obrigado.html') || window.location.pathname.endsWith('/obrigado')) {
+  // Página /obrigado dispara a conversão (funciona com /obrigado, /obrigado/ e /obrigado/index.html)
+  const convPath = window.location.pathname.replace(/\/index\.html$/, '').replace(/\/$/, '');
+  if (convPath.endsWith('/obrigado') || convPath.endsWith('/obrigado.html')) {
+    // Conversão "Contato" do Google Ads (send_to com o rótulo específico)
+    if (hasAds && window.gtag) {
+      gtag('event', 'conversion', { 'send_to': ADS_ID + '/' + ADS_CONVERSION_LABEL });
+    }
+    // Evento interno (GA4 + Meta Pixel via listener central)
     window.dispatchEvent(new CustomEvent('cascob:event', { detail: { event: 'conversion', params: {} } }));
   }
 })();
